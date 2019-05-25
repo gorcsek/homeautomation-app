@@ -1,0 +1,11 @@
+<ActionBar title="Részletek / adatok" class="action-bar"></ActionBar>
+<FlexboxLayout flexDirection="column" class="page">
+    <FlexboxLayout class="m-15">
+        <Label class="h2" [text]="item.id + '. '"></Label>
+        <Label class="h2" [text]="item.name"></Label>
+    </FlexboxLayout>
+   	<GridLayout rows="auto auto" columns="* *" class="m-5">
+   		<Label class="h3 m-15" text="Állapot" textWrap="true" row="0" col="0"></Label>
+    	<Switch class="m-15" [checked]="item.status" (checkedChange)="onTap($event)" row="0" col="1"></Switch>
+    </GridLayout>
+</FlexboxLayout>

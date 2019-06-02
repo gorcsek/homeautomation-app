@@ -2,15 +2,16 @@
 % opciók nélkül: egyoldalas nyomtatás, elektronikus verzió (fekete linkek)
 % twoside,     % kétoldalas nyomtatás
 % colorlinks,  % elektronikus verzió (színes linkek)
-% tocnopagenum,% oldalszámozás a tartalomjegyzék után kezd?dik
+% tocnopagenum,% oldalszámozás a tartalomjegyzék után kezdõdik
 ]{thesis-ekf}
 \usepackage[T1]{fontenc}
 \usepackage{listings}
 \PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
 \usepackage[magyar]{babel}
-\footnotestyle{rule=fourth}
 \usepackage{natbib}
 \usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\inputencoding{latin2}
 \setcitestyle{aysep={}}
 
 \begin{document}
@@ -30,9 +31,9 @@ A dokumentum célja, bemutatni az \textbf{AngularJS} és a \textbf{NativeJS} által
 
 \chapter{Elõkészületek}
 \section{Szükséges szoftverek}
-Ahhoz, hogy az Angular Mobile Framework tökéletesen fusson a gépünkön, elõre telepítenünk kell pár szoftvert. Ezek a szoftverek úgynevezett \textbf{Cross Platform} szoftverek, ami annyit jelent, hogy operációs rendszertõl függetlenül telepíthetjük õket, vagyis az összes nagy és népszerû (MacOs, Linux, Windows) operációs rendszerre gond nélkül fog települni. 
+Ahhoz, hogy az Angular Mobile Framework tökéletesen fusson a gépünkön, el?re telepítenünk kell pár szoftvert. Ezek a szoftverek úgynevezett \textbf{Cross Platform} szoftverek, ami annyit jelent, hogy operációs rendszertõl függetlenül telepíthetjük õket, vagyis az összes nagy és népszerû (MacOs, Linux, Windows) operációs rendszerre gond nélkül fog települni. 
 \section{A szoftvereket telepítése} 
-A következõ szoftverek telepítése szükséges:
+A következ? szoftverek telepítése szükséges:
 \begin{itemize}
 	\item nodeJs
 	\item nativescript CLI
@@ -57,7 +58,7 @@ Indítsuk el az Nativescript viewer alkalmazást a telefonunkon, és adjuk ki a köv
 \begin{lstlisting}
 tns preview
 \end{lstlisting}
-A parancsot kiadva a terminálban megjelenik egy QR kód melyet a telefonnal leolvasva tudjuk az alkalmazásunkat megtekinteni a telefonon. 
+A fent megadott parancsot kiadva a terminálban megjelenik egy QR kód melyet a telefonnal leolvasva tudjuk az alkalmazásunkat megtekinteni a telefonon. 
 
 \chapter{Az alkalmazás}
 \section{Home automation}
@@ -73,9 +74,11 @@ Az alkalmazás http kérésekkel vezérel egy \textbf{NodeMCU} nevû \textbf{ESP8266}
 
 \subsection{Kommunikáció}
 Mivel ez a panel wifi kapcsolattal rendelkezik ezért a legegyszerûbb és legjobb dolog írni hozzá egy applikációt, és wifin már kommunikálhatnak is a belsõ hálózaton.
+A lekérdezések mind \textbf{GET} metódussal a beállítások pedig \textbf{POST} metódussal kerülnek küldésre. A kommunikációnak nincs szabványos protokollja, viszont az adatok küldése és fogadása \textbf{JSON} adatformátumban történik. A \textbf{JSON} azért népszerû mert nagyon egyszerûen lehet belõle objektumot készíteni, a struktúrája is nagyon hasonló. JavaScriptben például majdnem ugyanaz, ezért egyszerûen készíthetõ az ilyen adatformátumból kész objektum amit már használhatunk is a kódunkban.
+Ha hiba nélküli válasz jön annak a státusz kódja 20x, ha pedig bármilyen hiba lépne fel a kérés során akkor az eszköz 40x típusú hibakóddal tér vissza.
 
 \subsection{A keretrendszer}
-A \textbf{NativeScript} és az \textbf{Angular} segítségével nagyon gyorsan lehet jó minõségû alkalmazást készíteni. 
+A \textbf{NativeScript} és az \textbf{Angular} segítségével nagyon gyorsan lehet jó min?ség? alkalmazást készíteni. 
 Elemek listázása az Angular segítségével:
 \begin{lstlisting}
 <GridLayout class="page">
@@ -91,14 +94,14 @@ Elemek listázása az Angular segítségével:
 A szoftver JavaScript nyelven íródik és az Angular sajátos HTML nyelvét felhasználva (XML-re épül) nagyon jó dolgokat lehet elérni. 
 
 \subsection{A callback}
-Amit nehéz lehet megszokni az az, hogy a JavaScript miatt szinte minden hívás aszinkron, de ha megszokjuk, hogy adat nem akkor jön amikor szeretnénk hanem majd egyszer csak ott lesz, de aggodalomra semmi ok, mert minden eventrõl értesülni fogunk amire feliratkozunk. 
+Amit nehéz lehet megszokni az az, hogy a JavaScript miatt szinte minden hívás aszinkron, de ha megszokjuk, hogy adat nem akkor jön amikor szeretnénk hanem majd egyszer csak ott lesz, de aggodalomra semmi ok, mert minden event-rõl értesülni fogunk amire feliratkozunk. 
 
 \subsection{Az alkalmazás}
 Nagyon sok része már teljesen készen van, de vannak még hiányosságok. A következõ dolgok fognak a jövõben még belekerülni:
 \begin{itemize}
 	\item hõmérséklet vezérlés
 	\item eszköz UDP-n megkeresése
-	\item a senzorok adatainak mentése serverre
+	\item a szenzorok adatainak mentése szerverre
 \end{itemize}
 \begin{center}
 	\label{App}

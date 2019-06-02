@@ -5,6 +5,7 @@
 % tocnopagenum,% oldalszámozás a tartalomjegyzék után kezd?dik
 ]{thesis-ekf}
 \usepackage[T1]{fontenc}
+\usepackage{listings}
 \PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
 \usepackage[magyar]{babel}
 \footnotestyle{rule=fourth}
@@ -22,35 +23,91 @@
 \tableofcontents
 
 \chapter*{Bevezetés}
-A dokumentum célja, bemutatni az \textbf{AngularJS} és a \textbf{NativeJS} által közösen létrehozott keretrendszert melyet a köztudatban csak \textbf{Angular Mobile Framework} ként említenek. A keretrendszert azért hozták létre, hogy platform függetlenül lehessen mobil applikációkat létrehozni, és egyszerûen lehessen az applikációknak grafikus felületet készíteni. Az egész keretrendszer \textbf{Javascript} alapokon fekszik.
-\newline Célom hogy röviden és tömören bemutassam a keretrendszer használatát valamint el?nyeit és hátrányait.
+A dokumentum célja, bemutatni az \textbf{AngularJS} és a \textbf{NativeJS} által közösen létrehozott keretrendszert melyet a köztudatban csak \textbf{Angular Mobile Framework} ként említenek. A keretrendszert azért hozták létre, hogy platform függetlenül lehessen mobil applikációkat létrehozni, és egyszerûen lehessen az applikációknak grafikus felületet készíteni. Az egész keretrendszer \textbf{Javascript} alapokon fekszik. Régóta probléma a mobil applikáció fejlesztésben, hogy kevés az olyan nyelv amivel a nagy mobil operációs rendszerekre (iOS, Android) egyszerre tudnánk lefordítani a megírt alkalmazásunkat. Az \textbf{Angular Mobile Framework} ebben nagy segítség, hogy a megírt alkalmazásunkat könnyedén tudjuk fordítani majd futtatni \textbf{iOs} valamint \textbf{Android} készülékre probléma és bármiféle átalakítás nélkül. Ez nagyon nagy segítség lehet, fõleg az olyan alkalmazásoknál melyek "csak" adatot dolgoznak fel és továbbítanak, vagyis kevés \textbf{GPU}-t kell használniuk, és lényegtelen ilyen szempontból a sebesség, mert nem fogjuk észrevenni a 4 és 8 magos készülékünkön azt a plusz réteget amit ez képez.
+\newline A dokumentum célja, hogy röviden és tömören de célravezetõen bemutassa a keretrendszer használatát valamint elõnyeit és hátrányait. A  keretrendszer használatához szükségünk lesz pár szoftver telepítésére, de errõl majd az elõkészületek fejezetben részletesebben beszélünk.
 
-\chapter{Fejezet címe}
-\section{Szakasz címe}
-\subsection{Alszakasz címe}
-Lórum ipse olyan borzasztóan cogális patás, ami fogás nélkül nem varkál megfelgel?en. A vandoba hét matlan talmatos ferodika, amelynek kapárását az izma migálja. A vandoba bulái közül ,,zsibulja'' meg az izmát, a pornát, valamint a m?vést és vátog a vandoba buláinak vókáiról. Vókája a raktil prozása két emen között. Évente legalább egyszer csetnyi pipecsélnie az ement, azon fongnia a láltos kapárásról és a nyákuum böllésérül.
 
-A vandoba ninti és az emen elé red?zi a szamlan radalmakan érvést. Az ement az izma bamzásban -- a hasás szegeszkéjével logálja össze --, legalább 15 nappal annak pozása el?tt. Az ement össze kell logálnia akkor is, ha azt az ódás legalább egyes bamzásban, a reszt? billetével hásodja.
-\cite[3.~fejezet]{Gyorffy}
+\chapter{Elõkészületek}
+\section{Szükséges szoftverek}
+Ahhoz, hogy az Angular Mobile Framework tökéletesen fusson a gépünkön, elõre telepítenünk kell pár szoftvert. Ezek a szoftverek úgynevezett \textbf{Cross Platform} szoftverek, ami annyit jelent, hogy operációs rendszertõl függetlenül telepíthetjük õket, vagyis az összes nagy és népszerû (MacOs, Linux, Windows) operációs rendszerre gond nélkül fog települni. 
+\section{A szoftvereket telepítése} 
+A következõ szoftverek telepítése szükséges:
+\begin{itemize}
+	\item nodeJs
+	\item nativescript CLI
+	\item JDK 8
+	\item Android SDK
+	\item playground app (telefonra)
+\end{itemize} 
 
-Lórum ipse olyan borzasztóan cogális patás, ami fogás nélkül nem varkál megfelel?en. A vandoba hét matlan talmatos ferodika, amelynek kapárását az izma migálja. A vandoba bulái közül ,,zsibulja'' meg az izmát, a pornát, valamint a m?vést és vátog a vandoba  buláinak vókáiról. Vókája a raktil prozása két emen között. Évente legalább egyszer csetnyi pipecsélnie az ement, azon fongnia a láltos kapárásról és a nyákuum böllésér?l.
-\cite[]{Gyorffy,Juhasz}
+\section{Kód szerkesztése}
+Bármilyen szövegszerkesztõt használhatunk a kódunk írásához, de én leginkább a \textbf{Sublime Text 3} -at ajánlom mindenkinek, mert nagyon jól paraméterezhetõ és sok hasznos kiegészítõ található hozzá.
 
-\section {Fejezet2 section}
-\subsection{fejezet2 subsection}
-dfgsdfgsdfgsdfgsdfg
-sdfg
-sdg
-sd
-gsdg
-sdg
+
+\section{Projekt készítése}
+\subsection{Létrehozás}
+A következõ parancsot kiadva tudjuk létrehozni elsõ projektünket:
+\begin{lstlisting}
+tns create projektneve --template tns-template-blank-ng
+\end{lstlisting}
+
+\subsection{Elindítás}
+Indítsuk el az Nativescript viewer alkalmazást a telefonunkon, és adjuk ki a következõ parancsot:
+\begin{lstlisting}
+tns preview
+\end{lstlisting}
+A parancsot kiadva a terminálban megjelenik egy QR kód melyet a telefonnal leolvasva tudjuk az alkalmazásunkat megtekinteni a telefonon. 
+
+\chapter{Az alkalmazás}
+\section{Home automation}
+\subsection{A terv}
+Régóta tervben volt egy automatizálási projekt, amivel különbözõ dolgokat akár távolról is lehet vezérelni a lakásban. Az ötlet onnan jött, hogy sokat utazunk vidékre és télen vagy nyáron jó lenne nem a hideg vagy a meleg lakásba hazaérkezni, fáradtan. 
+
+\subsection{A megvalósítás}
+Az alkalmazás http kérésekkel vezérel egy \textbf{NodeMCU} nevû \textbf{ESP8266} processzorral ellátott fejlesztõi panelt. 
+\begin{center}
+	\label{fig}
+	\includegraphics{nodemcu.png}
+\end{center}
+
+\subsection{Kommunikáció}
+Mivel ez a panel wifi kapcsolattal rendelkezik ezért a legegyszerûbb és legjobb dolog írni hozzá egy applikációt, és wifin már kommunikálhatnak is a belsõ hálózaton.
+
+\subsection{A keretrendszer}
+A \textbf{NativeScript} és az \textbf{Angular} segítségével nagyon gyorsan lehet jó minõségû alkalmazást készíteni. 
+Elemek listázása az Angular segítségével:
+\begin{lstlisting}
+<GridLayout class="page">
+	<ListView [items]="items" class="list-group">
+		<ng-template let-item="item">
+		<Label [nsRouterLink]="['/item', item.id]" 
+		[text]="item.name" class="list-group-item">
+		</Label>
+		</ng-template>
+	</ListView>
+</GridLayout>
+\end{lstlisting}
+A szoftver JavaScript nyelven íródik és az Angular sajátos HTML nyelvét felhasználva (XML-re épül) nagyon jó dolgokat lehet elérni. 
+
+\subsection{A callback}
+Amit nehéz lehet megszokni az az, hogy a JavaScript miatt szinte minden hívás aszinkron, de ha megszokjuk, hogy adat nem akkor jön amikor szeretnénk hanem majd egyszer csak ott lesz, de aggodalomra semmi ok, mert minden eventrõl értesülni fogunk amire feliratkozunk. 
+
+\subsection{Az alkalmazás}
+Nagyon sok része már teljesen készen van, de vannak még hiányosságok. A következõ dolgok fognak a jövõben még belekerülni:
+\begin{itemize}
+	\item hõmérséklet vezérlés
+	\item eszköz UDP-n megkeresése
+	\item a senzorok adatainak mentése serverre
+\end{itemize}
 
 \begin{thebibliography}{}
-\bibitem[Bóna(1998)]{Bona}
-Bóna István 1998. \emph{Az Árpádok korai várai}. Ethnica Kiadó. Debrecen.
-\bibitem[Györffy(1970)]{Gyorffy}
-Györffy György 1970. \emph{A honfoglaló magyarok települési rendjér?l}. Archeologiai Értesít? 97: 191--242.
-\bibitem[Juhász(1988)]{Juhasz}
-Juhász Dezs? 1988. \emph{A magyar tájnévadás}. Nyelvtudományi Értekezések 126. Akadémiai Kiadó. Budapest.
+\bibitem[nativescript()]{NativeScript}
+nativescript.org \emph{Official site}. Native Script dokumentáció
+\bibitem[nodejs()]{NodeJS}
+nodejs.org \emph{Official site}. NodeJS dokumentáció
+\bibitem[stackoverflow()]{StackOverflow}
+stackoverflow.com \emph{Community}. A fejlesztõk fellegvára
+\bibitem[theengineeringprojects()]{The Engineering Projects}
+theengineeringprojects.com \emph{Community}. Hasonló projektek tárháza
 \end{thebibliography}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.26)  2 JUN 2019 18:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.26)  2 JUN 2019 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -612,10 +612,10 @@ d.
 (rerunfilecheck)             Checksum: 1D9F683383C61DAAB7683B721409183E;2536.
  ) 
 Here is how much of TeX's memory you used:
- 13061 strings out of 492982
- 190834 string characters out of 6134896
+ 13059 strings out of 492982
+ 190811 string characters out of 6134896
  278878 words of memory out of 5000000
- 16389 multiletter control sequences out of 15000+600000
+ 16387 multiletter control sequences out of 15000+600000
  59118 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,7n,35p,1179b,1107s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -625,7 +625,7 @@ e/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/l
 m/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lms
 y10.pfb>
-Output written on kutatasmodszertan_rz8hjf.pdf (8 pages, 196714 bytes).
+Output written on kutatasmodszertan_rz8hjf.pdf (8 pages, 196520 bytes).
 PDF statistics:
  190 PDF objects out of 1000 (max. 8388607)
  166 compressed objects within 2 object streams

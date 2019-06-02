@@ -13,3 +13,4 @@
 \select@language {magyar} \contentsline {subsection}{\numberline {2.1.4}A keretrendszer}{7}{subsection.2.1.4}
 \select@language {magyar} \contentsline {subsection}{\numberline {2.1.5}A callback}{7}{subsection.2.1.5}
 \select@language {magyar} \contentsline {subsection}{\numberline {2.1.6}Az alkalmazás}{7}{subsection.2.1.6}
+\select@language {magyar} \contentsline {subsection}{\numberline {2.1.7}Github}{7}{subsection.2.1.7}
